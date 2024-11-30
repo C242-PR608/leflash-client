@@ -18,8 +18,6 @@
 
 .title {
   text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin: 10px 0 30px 0;
   font-size: 28px;
   font-weight: 800;
@@ -44,8 +42,6 @@
   margin: 0;
   font-size: 18px;
   color: black;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .input-field {
@@ -70,8 +66,6 @@ input:focus::placeholder {
 
 .page-link-label {
   cursor: pointer;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 9px;
   font-weight: 700;
 }
@@ -82,9 +76,7 @@ input:focus::placeholder {
 
 .form-btn {
   padding: 10px 15px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 0 !important;
   outline: 0 !important;
   background: teal;
@@ -101,8 +93,7 @@ input:focus::placeholder {
   margin: 0;
   font-size: 10px;
   color: #747474;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
 }
 
 .action-link {
@@ -113,6 +104,4 @@ input:focus::placeholder {
   color: teal;
   cursor: pointer;
   font-weight: 800;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

@@ -1,32 +1,59 @@
 <template>
   <div id="app">
-    <!-- <nav>
-      <router-link :to="{ name: 'home' }">Home</router-link> |
-      <router-link :to="{ name: 'signup' }">Sign Up</router-link> |
-    </nav> -->
+    <Navbar v-if="$route.meta.showNavigation" />
+    <Sidebar v-if="$route.meta.showNavigation" />
     <router-view />
   </div>
 </template>
 
+<script>
+import Navbar from './components/NavbarComponent.vue';
+import Sidebar from './components/sidebar/SidebarComponent.vue';
+export default {
+  components: {
+    Navbar,
+    Sidebar,
+  },
+};
+</script>
+
 <style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+main {
+  padding: 2em;
+  margin-top: 75px;
 }
 
-nav a {
+button {
+  height: 50px;
+  background-color: grey;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
   font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  outline: 0;
+  padding: 16px;
+  margin-block: 24px;
 }
 </style>
