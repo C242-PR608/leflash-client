@@ -53,6 +53,7 @@ export default {
 
   color: white;
   text-decoration: none;
+  transition: 0.3s;
 }
 
 .link:hover {

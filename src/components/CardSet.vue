@@ -2,7 +2,15 @@
   <div class="card-set">
     <div class="card-body">
       <div>
-        <p class="card-qty">{{ qty }}</p>
+        <div class="header">
+          <p class="card-qty">{{ qty }} cards</p>
+          <div class="btn-group">
+            <router-link :to="{ name: 'edit', params: { id: id } }">
+              <i class="fas fa-edit fa-sm"></i>
+            </router-link>
+            <i class="fas fa-trash fa-sm"></i>
+          </div>
+        </div>
         <div class="line"></div>
         <p class="card-title">{{ title }}</p>
       </div>
@@ -13,7 +21,8 @@
 <script>
 export default {
   props: {
-    qty: { type: String, required: true },
+    id: { type: String, required: true },
+    qty: { type: Number, required: true },
     title: { type: String, required: true },
   },
 };
@@ -34,15 +43,29 @@ export default {
   padding: 24px;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 12px;
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .card-title {
   color: #000000;
-  font-size: 30px;
+  font-size: 24px;
   margin: 0px;
   padding: 0px;
 }
 .card-qty {
   margin: 0px;
-  font-size: 20px;
+  font-size: 16px;
   color: #000000;
 }
 
@@ -51,5 +74,9 @@ export default {
   margin-block: 10px;
   background: #ddd;
   width: 100%;
+}
+
+i {
+  color: #ddd;
 }
 </style>

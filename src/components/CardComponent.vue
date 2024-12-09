@@ -40,8 +40,8 @@ export default {
 
 .card-title {
   text-align: center;
-  color: #000000;
-  font-size: 48px;
+  color: grey;
+  font-size: 36px;
   margin: 0px 0px 0px 0px;
   padding: 12px 12px 0 12px;
 }
@@ -50,7 +50,7 @@ export default {
   line-height: 1;
   margin: 0px 0px 0px 0px;
   font-size: 17px;
-  color: #000000;
+  color: grey;
 }
 .card-icon {
   display: flex;

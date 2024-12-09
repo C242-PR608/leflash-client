@@ -27,8 +27,14 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 36px;
+  margin-block: 18px;
+}
+
+.input-group {
+  display: flex;
   gap: 18px;
-  margin-bottom: 15px;
+  flex-flow: column;
 }
 
 .input {
@@ -40,11 +46,12 @@
 .input-label {
   text-align: start;
   margin: 0;
-  font-size: 18px;
+  font-size: 14px;
   color: black;
 }
 
 .input-field {
+  font-size: 14px;
   border-radius: 8px;
   border: 1px solid #c0c0c0;
   outline: 0 !important;
@@ -53,7 +60,7 @@
 }
 
 input:focus::placeholder {
-  color: transparent; /* Placeholder hilang saat input mendapat fokus */
+  color: transparent;
 }
 
 .page-link {
@@ -75,11 +82,13 @@ input:focus::placeholder {
 }
 
 .form-btn {
+  margin: auto;
+  width: 100%;
   padding: 10px 15px;
   border-radius: 16px;
   border: 0 !important;
   outline: 0 !important;
-  background: teal;
+  background: grey;
   color: white;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -100,8 +109,8 @@ input:focus::placeholder {
   margin-left: 1px;
   font-size: 11px;
   text-decoration: underline;
-  text-decoration-color: teal;
-  color: teal;
+  text-decoration-color: grey;
+  color: grey;
   cursor: pointer;
   font-weight: 800;
 }

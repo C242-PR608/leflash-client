@@ -10,13 +10,21 @@
       <CardComponent num="365" desc="DAYS STREAK" icon="fas fa-star fa-3x" />
     </div>
     <div class="set-header">
-      <h2>My Flashcard Set</h2>
-      <button><i class="fas fa-plus"></i> Create New Set</button>
+      <h3>My Flashcard Set</h3>
+      <router-link :to="{ name: 'create' }">
+        <button>
+          <i class="fas fa-plus fa-xs"></i> Create New Set
+        </button></router-link
+      >
     </div>
     <div class="card-set">
-      <CardSet qty="20 cards" title="JavaScript Syntax" />
-      <CardSet qty="17 cards" title="Back-end Technology" />
-      <CardSet qty="8 cards" title="Google Cloud CLI command" />
+      <CardSet
+        v-for="set in mySets"
+        :key="set.id"
+        :id="set.id"
+        :qty="set.cards.length"
+        :title="set.topic"
+      />
     </div>
   </main>
 </template>
@@ -25,6 +33,7 @@
 import CardComponent from '@/components/CardComponent.vue';
 import { sidebarWidth } from '../components/sidebar/state';
 import CardSet from '@/components/CardSet.vue';
+import { flashcardSets } from '@/dataSeed';
 export default {
   components: {
     CardComponent,
@@ -32,6 +41,17 @@ export default {
   },
   setup() {
     return { sidebarWidth };
+  },
+  data() {
+    return {
+      user_id: 'uid-1',
+      sets: flashcardSets,
+    };
+  },
+  computed: {
+    mySets() {
+      return this.sets.filter((set) => set.author_id === this.user_id);
+    },
   },
 };
 </script>

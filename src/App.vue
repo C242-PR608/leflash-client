@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Navbar v-if="$route.meta.showNavigation" />
-    <Sidebar v-if="$route.meta.showNavigation" />
+    <Navbar v-if="$route.meta.showNavbar" />
+    <Sidebar v-if="$route.meta.showSidebar" />
     <router-view />
   </div>
 </template>
@@ -44,16 +44,16 @@ main {
 }
 
 button {
-  height: 50px;
+  height: 45px;
   background-color: grey;
   border: none;
   border-radius: 8px;
   color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   outline: 0;
-  padding: 16px;
+  padding: 12px;
   margin-block: 24px;
 }
 </style>

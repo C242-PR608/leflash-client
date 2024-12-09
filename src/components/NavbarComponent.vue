@@ -7,7 +7,12 @@
     </div>
     <div class="profile">
       <div class="profile-pic">
-        <img src="../assets/img/profile-pic.jpg" alt="profile" />
+        <img
+          src="../assets/img/profile-pic.jpg"
+          alt="profile"
+          @click="toggleMenu"
+        />
+        <DropDown ref="dropDown" :items="services" />
       </div>
       <div class="bell-icon">
         <i class="far fa-bell fa-lg"></i>
@@ -17,7 +22,34 @@
 </template>
 
 <script>
-export default {};
+import DropDown from './DropDown.vue';
+
+export default {
+  components: {
+    DropDown,
+  },
+  data() {
+    return {
+      services: [
+        {
+          icon: 'fas fa-user fa-sm',
+          title: 'Profil',
+          link: '/',
+        },
+        {
+          icon: 'fas fa-sign-out-alt fa-sm',
+          title: 'Keluar',
+          link: '/logout',
+        },
+      ],
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.$refs.dropDown.toggleMenu();
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -32,7 +64,7 @@ export default {};
 
   position: fixed;
   top: 0;
-  z-index: 9999;
+  z-index: 99;
   border-bottom: 1px solid #ddd;
   background-color: white;
   height: 75px;
@@ -51,11 +83,16 @@ export default {};
   flex-direction: column;
 }
 
+.profile-pic.active,
+.profile-pic:hover img {
+  border-color: green;
+}
+
 .profile-pic img {
   widows: 40px;
   height: 40px;
   border-radius: 50%;
-  border: solid 2px;
+  border: solid 3px;
   border-color: grey;
   object-fit: cover;
 }
@@ -64,6 +101,11 @@ export default {};
   display: flex;
   flex-direction: column;
   color: gray;
+}
+
+.bell-icon.active,
+.bell-icon:hover {
+  color: black;
 }
 
 #logo-link {
