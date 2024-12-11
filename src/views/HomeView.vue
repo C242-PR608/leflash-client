@@ -19,11 +19,13 @@
     </div>
     <div class="card-set">
       <CardSet
-        v-for="set in mySets"
-        :key="set.id"
-        :id="set.id"
+        view
+        v-for="set in sets"
+        :key="set._id"
+        :id="set._id"
         :qty="set.cards.length"
         :title="set.topic"
+        v-on:remove-set="removeSet($event)"
       />
     </div>
   </main>
@@ -33,7 +35,9 @@
 import CardComponent from '@/components/CardComponent.vue';
 import { sidebarWidth } from '../components/sidebar/state';
 import CardSet from '@/components/CardSet.vue';
-import { flashcardSets } from '@/dataSeed';
+import axios from 'axios';
+// import { flashcardSets } from '@/dataSeed';
+
 export default {
   components: {
     CardComponent,
@@ -44,14 +48,35 @@ export default {
   },
   data() {
     return {
-      user_id: 'uid-1',
-      sets: flashcardSets,
+      user_id: this.$store.state.user._id,
+      sets: [],
     };
   },
-  computed: {
-    mySets() {
-      return this.sets.filter((set) => set.author_id === this.user_id);
+  // computed: {
+  //   mySets() {
+  //     return this.sets.filter((set) => set.author_id === this.user_id);
+  //   },
+  // },
+  methods: {
+    async removeSet(set) {
+      await axios.delete(`http://localhost:8000/api/sets/${set}`);
+
+      let indexSet = this.sets
+        .map(function (set) {
+          return set._id;
+        })
+        .indexOf(set);
+      this.sets.splice(indexSet, 1);
     },
+  },
+  async created() {
+    const userId = this.$store.state.user._id;
+
+    const result = await axios.get(
+      'http://localhost:8000/api/sets/user',
+      userId
+    );
+    this.sets = result.data;
   },
 };
 </script>
@@ -60,6 +85,7 @@ export default {
 .overview {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 48px;
   margin-block-end: 5em;
 }

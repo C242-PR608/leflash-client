@@ -8,12 +8,18 @@
 }
 
 .form-container {
+  justify-items: center;
   width: 350px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 10px;
   box-sizing: border-box;
   padding: 20px 30px;
+}
+
+.form-container img {
+  width: 52px;
+  height: 52px;
 }
 
 .title {
@@ -88,7 +94,7 @@ input:focus::placeholder {
   border-radius: 16px;
   border: 0 !important;
   outline: 0 !important;
-  background: grey;
+  background: #0033cc;
   color: white;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -109,8 +115,8 @@ input:focus::placeholder {
   margin-left: 1px;
   font-size: 11px;
   text-decoration: underline;
-  text-decoration-color: grey;
-  color: grey;
+  text-decoration-color: #0033cc;
+  color: #0033cc;
   cursor: pointer;
   font-weight: 800;
 }

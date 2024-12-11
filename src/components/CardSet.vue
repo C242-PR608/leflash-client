@@ -2,17 +2,20 @@
   <div class="card-set">
     <div class="card-body">
       <div>
-        <div class="header">
+        <div class="header" v-if="view">
           <p class="card-qty">{{ qty }} cards</p>
           <div class="btn-group">
             <router-link :to="{ name: 'edit', params: { id: id } }">
               <i class="fas fa-edit fa-sm"></i>
             </router-link>
-            <i class="fas fa-trash fa-sm"></i>
+            <i class="fas fa-trash fa-sm" @click="$emit('remove-set', id)"></i>
           </div>
         </div>
-        <div class="line"></div>
+        <div class="line" v-if="view"></div>
         <p class="card-title">{{ title }}</p>
+      </div>
+      <div class="progress-container" v-if="progress">
+        <div class="progress-bar" id="progress"></div>
       </div>
     </div>
   </div>
@@ -21,9 +24,28 @@
 <script>
 export default {
   props: {
-    id: { type: String, required: true },
-    qty: { type: Number, required: true },
-    title: { type: String, required: true },
+    id: { type: String },
+    qty: { type: Number },
+    title: { type: String },
+    view: { type: Boolean },
+    progress: { type: Boolean },
+    completed: { type: Number },
+    total: { type: Number },
+  },
+  data() {
+    return {
+      done: this.completed,
+      full: this.total,
+    };
+  },
+  methods: {
+    updateProgress() {
+      let percentage = (this.done / this.full) * 100; // Hitung persentase progress
+      let progressBar = document.getElementById('progress');
+
+      // Update lebar progress bar
+      progressBar.style.width = percentage + '%';
+    },
   },
 };
 </script>
@@ -77,6 +99,22 @@ export default {
 }
 
 i {
-  color: #ddd;
+  color: rgb(0, 51, 204, 0.3);
+}
+
+.progress-container {
+  margin-block: 8px;
+  width: 100%;
+  height: 15px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #4caf50;
+  transition: width 0.5s ease;
 }
 </style>

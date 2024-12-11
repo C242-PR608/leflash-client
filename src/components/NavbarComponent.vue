@@ -85,7 +85,7 @@ export default {
 
 .profile-pic.active,
 .profile-pic:hover img {
-  border-color: green;
+  border-color: rgb(0, 51, 204, 0.6);
 }
 
 .profile-pic img {
@@ -105,17 +105,17 @@ export default {
 
 .bell-icon.active,
 .bell-icon:hover {
-  color: black;
+  color: rgb(0, 51, 204, 0.6);
 }
 
 #logo-link {
   text-align: center;
   display: block;
-  color: black;
   font-size: 22px;
   text-decoration: none;
 }
 #logo-link h1 {
   margin: 0;
+  color: #0033cc;
 }
 </style>

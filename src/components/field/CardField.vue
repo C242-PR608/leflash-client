@@ -6,12 +6,12 @@
         <div v-if="length > 3">
           <i
             class="fas fa-trash fa-sm"
-            style="color: grey"
+            style="color: rgb(0, 51, 204, 0.5)"
             @click="$emit('remove', index)"
           ></i>
         </div>
         <div v-else>
-          <i class="fas fa-trash fa-sm" style="color: #ddd"></i>
+          <i class="fas fa-trash fa-sm" style="color: rgb(0, 51, 204, 0.2)"></i>
         </div>
       </div>
       <div class="line"></div>
@@ -22,12 +22,14 @@
         class="input-field"
         placeholder="Term"
         v-model="termValue"
+        required
       />
       <input
         type="text"
         class="input-field"
         placeholder="Definition"
         v-model="definitionValue"
+        required
       />
     </div>
   </div>

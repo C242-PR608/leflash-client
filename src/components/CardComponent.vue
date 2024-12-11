@@ -1,11 +1,11 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <div>
+      <div style="align-content: center">
         <h2 class="card-title">{{ num }}</h2>
         <p class="card-text">{{ desc }}</p>
       </div>
-      <div class="card-icon">
+      <div class="card-icon" v-if="icon">
         <i :class="icon"></i>
       </div>
     </div>
@@ -15,9 +15,9 @@
 <script>
 export default {
   props: {
-    num: { type: String, required: true },
+    num: { type: String },
     desc: { type: String, required: true },
-    icon: { type: String, required: true },
+    icon: { type: String },
   },
 };
 </script>
@@ -26,35 +26,36 @@ export default {
 .card {
   border-radius: 16px;
   min-width: 272px;
+  min-height: 100px;
   box-shadow: 3px 5px 14px 1px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 .card-body {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: #fffcfc;
   flex-grow: 1;
-  padding: 48px 24px;
+  padding: 24px 24px;
 }
 
 .card-title {
-  text-align: center;
   color: grey;
-  font-size: 36px;
-  margin: 0px 0px 0px 0px;
-  padding: 12px 12px 0 12px;
+  font-size: 20px;
+  padding: 0px;
+  margin: 0px;
 }
 .card-text {
-  text-align: center;
   line-height: 1;
-  margin: 0px 0px 0px 0px;
   font-size: 17px;
   color: grey;
+  padding: 0px;
+  margin: 0px;
 }
 .card-icon {
   display: flex;
   align-items: center;
+  color: rgb(0, 51, 204, 0.3);
 
   margin: 0px 0px 0px 0px;
 }

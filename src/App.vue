@@ -45,7 +45,7 @@ main {
 
 button {
   height: 45px;
-  background-color: grey;
+  background-color: rgb(0, 51, 204, 0.8);
   border: none;
   border-radius: 8px;
   color: white;

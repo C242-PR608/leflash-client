@@ -1,6 +1,7 @@
 <template>
   <section class="auth-section">
     <div class="form-container">
+      <img src="../../assets/img/logo.jpg" alt="" />
       <p class="title">Welcome back</p>
       <form class="form" @submit.prevent="login">
         <div class="input-group">

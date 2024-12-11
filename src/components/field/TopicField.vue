@@ -8,6 +8,7 @@
         class="input-field"
         placeholder="Insert a new topic"
         v-model="topicValue"
+        required
       />
     </div>
     <div class="input">

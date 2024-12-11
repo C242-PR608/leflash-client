@@ -87,7 +87,7 @@ export default {
 }
 
 .menu-item:hover {
-  color: black;
+  color: rgb(0, 51, 204, 0.6);
 }
 
 a {

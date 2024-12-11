@@ -31,9 +31,9 @@ export default {
 
 <style>
 :root {
-  --sidebar-bg-color: grey;
-  --sidebar-item-hover: #ddd;
-  --sidebar-item-active: black;
+  --sidebar-bg-color: rgb(0, 51, 204, 0.7);
+  --sidebar-item-hover: rgb(161, 183, 248);
+  --sidebar-item-active: rgb(0, 51, 204);
 }
 </style>
 
